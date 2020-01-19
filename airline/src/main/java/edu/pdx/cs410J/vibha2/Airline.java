@@ -14,7 +14,12 @@ public class Airline<T extends AbstractFlight> extends AbstractAirline<T>{
 
     //Airline constructor
     public Airline(String name){
-        this.airline_name=name;
+        if(name.length()!=0){
+        this.airline_name=name;}
+        else {
+            System.err.println("Airline name is not set");
+            System.exit(1);
+        }
     }
 
     @Override
