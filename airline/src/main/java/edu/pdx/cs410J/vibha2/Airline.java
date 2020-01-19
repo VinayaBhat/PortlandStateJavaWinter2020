@@ -31,4 +31,5 @@ public class Airline<T extends AbstractFlight> extends AbstractAirline<T>{
     public Collection getFlights() {
         return flights;
     }
+
 }

@@ -12,6 +12,7 @@ public class Flight extends AbstractFlight {
 
   //constructor
   public Flight(int flightNumber){
+
     this.flight_number=flightNumber;
   }
 
@@ -68,4 +69,5 @@ public class Flight extends AbstractFlight {
     else
       throw new UnsupportedOperationException("Arrival Time not specified");
   }
+
 }
