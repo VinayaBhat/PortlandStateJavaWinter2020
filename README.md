@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/YourGitHubId/PortlandStateJavaWinter2020.svg?branch=master)](https://travis-ci.org/YourGitHubId/PortlandStateJavaWinter2020)
+[![Build Status]https://travis-ci.com/VinayaBhat/PortlandStateJavaWinter2020.svg?token=TYFst7vxy4yDyDNwCsTd&branch=master
 
 # Getting Started with Advanced Programming with Java
 
