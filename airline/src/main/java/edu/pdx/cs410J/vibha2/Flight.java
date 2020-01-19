@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class Flight extends AbstractFlight {
   //properties
-  int flight_number=0;
-  String source="";
-  String destination="";
-  String arrival_time="";
-  String departure_time="";
+  int flight_number;
+  String source;
+  String destination;
+  String arrival_time;
+  String departure_time;
 
   //constructor
   public Flight(String flightNumber){
@@ -69,7 +69,7 @@ public class Flight extends AbstractFlight {
 
   @Override
   public String getSource() {
-    if(source.length()==0)
+    if(source==null)
       {
         System.err.println("Source is not set");
         System.exit(1);
@@ -79,7 +79,7 @@ public class Flight extends AbstractFlight {
 
   @Override
   public String getDepartureString() {
-    if(departure_time.length()==0)
+    if(departure_time==null)
         {
       System.err.println("Departure Time is not set");
       System.exit(1);
@@ -89,7 +89,7 @@ public class Flight extends AbstractFlight {
 
   @Override
   public String getDestination() {
-    if(destination.length()==0)
+    if(destination==null)
     {
       System.err.println("Destination is not set");
       System.exit(1);
@@ -99,7 +99,7 @@ public class Flight extends AbstractFlight {
 
   @Override
   public String getArrivalString() {
-    if(arrival_time.length()==0)
+    if(arrival_time==null)
     {
       System.err.println("Arrival Time is not set");
       System.exit(1);
