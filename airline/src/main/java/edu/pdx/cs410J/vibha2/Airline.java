@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Airline extends AbstractAirline {
+public class Airline<T extends AbstractFlight> extends AbstractAirline<T>{
     //Properties of Airline
     String airline_name;
     List<AbstractFlight> flights=new ArrayList<>();
