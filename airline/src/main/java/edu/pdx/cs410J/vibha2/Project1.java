@@ -15,7 +15,10 @@ import java.util.Date;
 public class Project1 {
 
   public static void main(String[] args) {
-    boolean print = false;
+    if(args.length<6){
+      System.err.println("Missing command line arguments");
+      System.exit(1);
+    }
     if (args[0].equalsIgnoreCase("-print")) {
       if (args[1].equalsIgnoreCase("-README")) {
         int i = 2;
