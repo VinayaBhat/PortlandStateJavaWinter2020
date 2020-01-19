@@ -71,8 +71,8 @@ public class Flight extends AbstractFlight {
   public String getSource() {
     if(source==null)
       {
-        System.err.println("Source is not set");
-        System.exit(1);
+        throw new UnsupportedOperationException("Source not set");
+
       }
     return this.source;
   }
@@ -81,8 +81,7 @@ public class Flight extends AbstractFlight {
   public String getDepartureString() {
     if(departure_time==null)
         {
-      System.err.println("Departure Time is not set");
-      System.exit(1);
+     throw new UnsupportedOperationException("Departure Time not set");
     }
     return this.departure_time;
   }
@@ -91,8 +90,8 @@ public class Flight extends AbstractFlight {
   public String getDestination() {
     if(destination==null)
     {
-      System.err.println("Destination is not set");
-      System.exit(1);
+      throw new UnsupportedOperationException("Destination not set");
+
     }
     return this.destination;
   }
@@ -101,8 +100,8 @@ public class Flight extends AbstractFlight {
   public String getArrivalString() {
     if(arrival_time==null)
     {
-      System.err.println("Arrival Time is not set");
-      System.exit(1);
+      throw new UnsupportedOperationException("Arrival Time not set");
+
     }
     return this.arrival_time;
   }

@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class FlightTest {
   
-  @Test(expected = UnsupportedOperationException.class)
+@Test(expected = UnsupportedOperationException.class)
   public void getArrivalStringNeedsToBeImplemented() {
     Flight flight = new Flight("1");
     flight.getArrivalString();
