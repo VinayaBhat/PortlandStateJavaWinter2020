@@ -28,5 +28,10 @@ public class Project1IT extends InvokeMainTestCase {
     assertThat(result.getExitCode(), equalTo(1));
     assertThat(result.getTextWrittenToStandardError(), containsString("Missing command line arguments"));
   }
+  @Test
+    public void testwitharguments(){
+      String[] args={"-print","Alaska","101","jfk","1/21/2000","dal","1/22/2000"};
+        MainMethodResult result = invokeMain(args);
+  }
 
 }

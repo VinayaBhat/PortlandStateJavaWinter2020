@@ -21,8 +21,7 @@ public class Flight extends AbstractFlight {
    if(flightnumberisvalid(flightNumber)) {
      this.flight_number = Integer.parseInt(flightNumber);
    }else{
-     System.err.println("Flight number is not set properly");
-     System.exit(1);
+     throw new IllegalArgumentException("Flight number is not set properly");
    }
   }
 
@@ -31,8 +30,8 @@ public class Flight extends AbstractFlight {
     if(flightsrcdestisvalid(source)) {
       this.source = source;
     }else{
-      System.err.println("Flight source is not set properly");
-      System.exit(1);
+      throw new IllegalArgumentException("Flight source is not set properly");
+
     }
   }
 
@@ -40,26 +39,19 @@ public class Flight extends AbstractFlight {
     if(flightsrcdestisvalid(destination)) {
       this.destination = destination;
     }else{
-      System.err.println("Flight destination is not set properly");
-      System.exit(1);
+      throw new IllegalArgumentException("Flight destination is not set properly");
+
     }
   }
 
   public void setArrival_time(String arrivalDate,String arrivalTime){
     if(checkdateandtime("Arrival",arrivalDate,arrivalTime))
       this.arrival_time = arrivalDate + " " + arrivalTime;
-    else{
-      System.err.println("Flight Arrival Time is not set properly");
-      System.exit(1);
-    }
   }
 
   public void setDeparture_time(String departureDate,String departureTime){
     if(checkdateandtime("Departure",departureDate,departureTime)) {
       this.departure_time=departureDate+" "+departureTime;
-    }else{
-      System.err.println("Flight Departure Time is not set properly");
-      System.exit(1);
     }
   }
 
@@ -129,20 +121,17 @@ public class Flight extends AbstractFlight {
       int month=cdate.get(Calendar.MONTH);
       month=month+1;
       if (String.valueOf(year).length() != 4 || day < 1 || day > 31 || month < 1 || month > 12) {
-        System.err.println(sd + " date not set properly");
-        System.err.println(" "+year+" "+month+" "+day);
-        System.exit(1);
+        throw new IllegalArgumentException(sd + " date not set properly");
       }
 
     } catch (Exception e) {
-      System.err.println(sd + " date not set properly");
-      System.exit(1);
+      throw new IllegalArgumentException(sd + " date not set properly");
     }
+
     try {
       LocalTime localTime = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
     } catch (Exception e) {
-      System.err.println(sd + " time not set properly");
-      System.exit(1);
+      throw new IllegalArgumentException(sd +" time not set properly");
     }
     return true;
   }

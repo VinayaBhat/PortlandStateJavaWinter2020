@@ -1,5 +1,6 @@
 package edu.pdx.cs410J.vibha2;
 
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -13,7 +14,6 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for the {@link Flight} class.
  */
 public class FlightTest {
-  
 @Test(expected = UnsupportedOperationException.class)
   public void getArrivalStringNeedsToBeImplemented() {
     Flight flight = new Flight("1");
@@ -64,6 +64,46 @@ public class FlightTest {
     a.addFlight(f1);
     assertThat(a.getFlights().size(),equalTo(1));
   }
+  @Test(expected = IllegalArgumentException.class)
+  public void wrongairlinename(){
+    Airline<Flight> a=new Airline<>("");
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void wrongflightnumber(){
+    Flight flight=new Flight("ss0");
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void sourcenamedoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setSource("dallas");
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void destinationnamesdoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setDestination("new jersey");
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void arrivaldateoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setArrival_time("21-1-2010","10:30");
+  }
+  @Test(expected = Exception.class)
+  public void arrivaltimeoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setArrival_time("1/21/2010","10:30:60");
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void departuredateoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setDeparture_time("21-1-2010","10:30");
+  }
+  @Test(expected = Exception.class)
+  public void departuretimeoesnotmatchspecification(){
+    Flight flight=new Flight("1");
+    flight.setDeparture_time("1/21/2010","10:30:60");
+  }
+
+
 
 
   

@@ -1,16 +1,5 @@
 package edu.pdx.cs410J.vibha2;
 
-import edu.pdx.cs410J.AbstractAirline;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * The main class for the CS410J airline Project
@@ -29,28 +18,29 @@ public class Project1 {
       if (args[0].equalsIgnoreCase("-print")) {
         if (args[1].equalsIgnoreCase("-README")) {
           int i = 2;
-          printoption(args, i);
+          populateinformation(args, i,true);
           readme();
         } else {
           int i = 1;
-          printoption(args, i);
+          populateinformation(args, i,true);
         }
       } else if (args[0].equalsIgnoreCase("-README")) {
         if (args[1].equalsIgnoreCase("-print")) {
           readme();
           int i = 2;
-          printoption(args, i);
+          populateinformation(args, i,true);
         } else {
           readme();
         }
       } else {
-        System.err.println("Options not provided");
-        System.exit(1);
+
+        populateinformation(args, 0,false);
       }
     }
   }
 
-private static void  printoption(String[] args,int i) {
+
+private static void  populateinformation(String[] args,int i,boolean print) {
 
   String airlinename = args[i];
   String flightnumber = args[i + 1];
@@ -60,15 +50,21 @@ private static void  printoption(String[] args,int i) {
   String flightdest = args[i + 5];
   String arrivaldate = args[i + 6];
   String arrrivaltime = args[i + 7];
-
+try {
   Airline<Flight> a1 = new Airline<>(airlinename);
   Flight flight = new Flight(flightnumber);
   flight.setSource(flightsrc);
-  flight.setDeparture_time(depardate,departime);
+  flight.setDeparture_time(depardate, departime);
   flight.setDestination(flightdest);
-  flight.setArrival_time(arrivaldate,arrrivaltime);
+  flight.setArrival_time(arrivaldate, arrrivaltime);
   a1.addFlight(flight);
-  System.out.println(flight.toString());
+  if (print) {
+    System.out.println(flight.toString());
+  }
+}catch (Exception e){
+  System.err.println(e.getMessage());
+  System.exit(1);
+}
   }
 
   public static void readme(){
