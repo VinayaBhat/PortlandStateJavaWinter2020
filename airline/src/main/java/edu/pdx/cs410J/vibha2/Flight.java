@@ -3,8 +3,10 @@ package edu.pdx.cs410J.vibha2;
 import edu.pdx.cs410J.AbstractFlight;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Flight extends AbstractFlight {
@@ -120,14 +122,16 @@ public class Flight extends AbstractFlight {
 
   private static boolean checkdateandtime (String sd, String date, String time){
     try {
-      System.out.println((sd));
-      System.out.println((sd));
-      Date date1 = new SimpleDateFormat("mm/dd/yyyy").parse(date);
-      int yearlen = String.valueOf(date1.getYear()).length();
-      int day = date1.getDay();
-      int month = date1.getMonth();
-      if (yearlen != 4 || day < 1 || day > 31 || month < 1 || month > 12) {
+      Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse(date);
+      Calendar cdate = Calendar.getInstance();
+      cdate.setTime(date1);
+      int day=cdate.get(Calendar.DAY_OF_MONTH);
+     int year=cdate.get(Calendar.YEAR);
+      int month=cdate.get(Calendar.MONTH);
+      month=month+1;
+      if (String.valueOf(year).length() != 4 || day < 1 || day > 31 || month < 1 || month > 12) {
         System.err.println(sd + " date not set properly");
+        System.err.println(" "+year+" "+month+" "+day);
         System.exit(1);
       }
 
