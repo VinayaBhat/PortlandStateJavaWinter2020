@@ -151,11 +151,15 @@ accordingly
       
   
   <scm>
+<<<<<<< HEAD
             
     
     <connection>scm:git:git@github.com:VinayaBhat/PortlandStateJavaWinter2020.git</connection>
           
   
+=======
+    <connection>scm:git:git@github.com:YourGitHubUser/PortlandStateJavaWinter2020.git</connection>
+>>>>>>> 9a8bc16176cb26e2b2520f5f3341b9c92ccfa74f
   </scm>
       
   

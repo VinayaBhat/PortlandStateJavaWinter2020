@@ -3,7 +3,6 @@ package edu.pdx.cs410J.vibha2;
 import edu.pdx.cs410J.AbstractFlight;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
