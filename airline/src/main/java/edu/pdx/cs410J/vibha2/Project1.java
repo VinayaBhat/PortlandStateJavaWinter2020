@@ -41,7 +41,7 @@ public class Project1 {
 
 
 private static void  populateinformation(String[] args,int i,boolean print) {
-
+try {
   String airlinename = args[i];
   String flightnumber = args[i + 1];
   String flightsrc = args[i + 2];
@@ -50,7 +50,6 @@ private static void  populateinformation(String[] args,int i,boolean print) {
   String flightdest = args[i + 5];
   String arrivaldate = args[i + 6];
   String arrrivaltime = args[i + 7];
-try {
   Airline<Flight> a1 = new Airline<>(airlinename);
   Flight flight = new Flight(flightnumber);
   flight.setSource(flightsrc);

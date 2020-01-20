@@ -29,9 +29,43 @@ public class Project1IT extends InvokeMainTestCase {
     assertThat(result.getTextWrittenToStandardError(), containsString("Missing command line arguments"));
   }
   @Test
-    public void testwitharguments(){
-      String[] args={"-print","Alaska","101","jfk","1/21/2000","dal","1/22/2000"};
+    public void testwithargumentsprint(){
+      String[] args={"-print","Alaska","101","jfk","1/21/2000","10:30","dal","1/22/2000","11:30"};
         MainMethodResult result = invokeMain(args);
   }
+    @Test
+    public void testwithargumentsreadme(){
+        String[] args={"-README","Alaska","101","jfk","1/21/2000","10:30","dal","1/22/2000","11:30"};
+        MainMethodResult result = invokeMain(args);
+    }
+    @Test
+    public void testwithargumentsreadmeandprint(){
+        String[] args={"-README","-print","Alaska","101","jfk","1/21/2000","10:30","dal","1/22/2000","11:30"};
+        MainMethodResult result = invokeMain(args);
+    }
+    @Test
+    public void testwithargumentprintandreadme(){
+        String[] args={"-print","-README","Alaska","101","jfk","1/21/2000","10:30","dal","1/22/2000","11:30"};
+        MainMethodResult result = invokeMain(args);
+    }
 
+    @Test
+    public void testwithnooptions(){
+        String[] args={"Alaska","101","jfk","1/21/2000","10:30","dal","1/22/2000","11:30"};
+        MainMethodResult result = invokeMain(args);
+    }
+
+    @Test
+    public void testwithlessargument(){
+        String[] args={"Alaska","101","","1/21/2000","10:30","dal","1/22/2000","11:30"};
+        MainMethodResult result = invokeMain(args);
+        assertThat(result.getExitCode(), equalTo(1));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Flight source is not set properly"));
+        }
+
+    @Test
+    public void testwithonylreadme() {
+        String[] args = {"-README"};
+        MainMethodResult result = invokeMain(args);
+    }
 }
