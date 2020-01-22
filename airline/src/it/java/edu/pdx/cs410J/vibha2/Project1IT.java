@@ -92,4 +92,48 @@ public class Project1IT extends InvokeMainTestCase {
         String[] args = {"-README"};
         MainMethodResult result = invokeMain(args);
     }
+
+    /**
+     * Test with only insufficient commandline arguments.
+     */
+    @Test
+    public void testwithnooptionandlessarguments() {
+        String[] args = {"Alaska","103","dal","1/21/2020","pdx","1/21/2020","10:30"};
+        MainMethodResult result = invokeMain(args);
+        assertThat(result.getExitCode(), equalTo(1));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Insufficient command line arguments"));
+    }
+
+    /**
+     * Test with only readme.
+     */
+    @Test
+    public void testwithunknownoption() {
+        String[] args = {"-hello"};
+        MainMethodResult result = invokeMain(args);
+        assertThat(result.getExitCode(), equalTo(1));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Unknown command line option"));
+    }
+
+    /**
+     * Test with only extra commandline arguments.
+     */
+    @Test
+    public void testwithextracmdlinearg() {
+        String[] args = {"Alaska","103","dal","1/21/2020","10:30","pdx","1/21/2020","10:30","hi"};
+        MainMethodResult result = invokeMain(args);
+        assertThat(result.getExitCode(), equalTo(1));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Extra unknown command line arguments"));
+    }
+
+    /**
+     * Test with only extra unknown option commandline arguments.
+     */
+    @Test
+    public void testwithunknownoptionandarg() {
+        String[] args = {"-hello","Alaska","103","dal","1/21/2020","10:30","pdx","1/21/2020","10:30"};
+        MainMethodResult result = invokeMain(args);
+        assertThat(result.getExitCode(), equalTo(1));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Unknown command line option"));
+    }
 }

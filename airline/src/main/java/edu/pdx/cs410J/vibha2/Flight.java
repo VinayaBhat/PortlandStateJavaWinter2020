@@ -124,7 +124,7 @@ public class Flight extends AbstractFlight {
     @Override
     public String getDepartureString() {
         if (departure_time == null) {
-            throw new UnsupportedOperationException("Departure Time not set");
+            throw new UnsupportedOperationException("Departure Date and Time not set");
         }
         return this.departure_time;
     }
@@ -153,7 +153,7 @@ public class Flight extends AbstractFlight {
     @Override
     public String getArrivalString() {
         if (arrival_time == null) {
-            throw new UnsupportedOperationException("Arrival Time not set");
+            throw new UnsupportedOperationException("Arrival Date and Time not set");
 
         }
         return this.arrival_time;
@@ -199,7 +199,7 @@ public class Flight extends AbstractFlight {
         Matcher matcher1 = pattern1.matcher(date);
         boolean correctdate = matcher1.matches();
         if (!correctdate) {
-            throw new IllegalArgumentException(sd + " time not set properly");
+            throw new IllegalArgumentException(sd + " date not set properly");
         }
         try {
             LocalTime localTime = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
