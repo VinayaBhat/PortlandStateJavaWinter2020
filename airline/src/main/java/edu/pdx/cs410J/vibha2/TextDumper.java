@@ -65,7 +65,7 @@ public class TextDumper implements AirlineDumper {
 
             dump(abstractAirline);
         }catch (Exception e){
-            System.err.println(e.getMessage());
+            System.err.println("Error occured in TextDumper "+e.getMessage());
             System.exit(1);
         }
     }
