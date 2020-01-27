@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Unit tests for the {@link Flight} class.
  */
-public class FlightTest  {
+public class FlightTest {
   /**
    * getArrivalStringNeedsToBeImplemented is used to test the scenario when ArrivalDateandTime is not set.
    */
