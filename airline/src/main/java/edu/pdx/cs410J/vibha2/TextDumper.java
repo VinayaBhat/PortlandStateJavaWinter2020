@@ -58,6 +58,11 @@ public class TextDumper implements AirlineDumper {
             }
             TextParser td=new TextParser();
             td.validateData(filePath);
+            AbstractAirline<Flight> fileairline=td.parse();
+            if(!fileairline.getName().equals(abstractAirline.getName())){
+                throw new Exception("Airline name not found in file");
+            }
+
             dump(abstractAirline);
         }catch (Exception e){
             System.err.println(e.getMessage());
