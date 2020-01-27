@@ -1,0 +1,67 @@
+package edu.pdx.cs410J.vibha2;
+
+import edu.pdx.cs410J.AbstractAirline;
+import edu.pdx.cs410J.AirlineDumper;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Collection;
+
+/**
+ * TextDumper implements AirlineDumper
+ */
+public class TextDumper implements AirlineDumper {
+    FileWriter writer;
+
+    /**
+     *dump writes to text file
+     * @param abstractAirline airline to write to the file
+     *
+     */
+    @Override
+    public void dump(AbstractAirline abstractAirline){
+        try{
+        String airlinename=abstractAirline.getName();
+        Collection<Flight> flight=abstractAirline.getFlights();
+        for(Flight flightinfo:flight){
+            int flightnum=flightinfo.getNumber();
+            String src=flightinfo.getSource();
+            String dest=flightinfo.getDestination();
+            String arrival_time=flightinfo.getArrivalString();
+            String departure_time=flightinfo.getDepartureString();
+            writer.write(airlinename+";"+flightnum+";"+src+";"+departure_time+";"+dest+";"+arrival_time+System.getProperty("line.separator"));
+        }
+     writer.close();
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    /**
+     * writetotext creates or opens a file before validating and dumping data to file.
+     * @param filePath path to text file
+     * @param abstractAirline airline to write to file
+     */
+    public void writeToText(String filePath,AbstractAirline abstractAirline){
+        try{
+            File file= new File (filePath);
+            if (file.exists())
+            {
+                writer= new FileWriter(file,true);//if file exists append to file. Works fine.
+            }
+            else
+            {
+                file.createNewFile();
+                writer = new FileWriter(file);
+            }
+            TextParser td=new TextParser();
+            td.validateData(filePath);
+            dump(abstractAirline);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+}
