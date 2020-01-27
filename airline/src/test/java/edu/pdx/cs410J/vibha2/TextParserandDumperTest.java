@@ -29,7 +29,8 @@ public class TextParserandDumperTest {
         flight.setArrival_time("1/21/2020", "10:30");
         flight.setDeparture_time("1/20/2020", "15:40");
         a1.addFlight(flight);
-        td.writeToText("A.txt",a1);
+        //td.writeToText("",a1);
+
     }
 
 
