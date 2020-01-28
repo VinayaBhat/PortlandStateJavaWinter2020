@@ -11,7 +11,7 @@ import java.util.Collection;
 /**
  * TextDumper implements AirlineDumper
  */
-public class TextDumper implements AirlineDumper {
+public class TextDumper<T extends AbstractAirline> implements AirlineDumper<T>{
     FileWriter writer;
 
     /**
