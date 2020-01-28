@@ -46,7 +46,7 @@ public class Project2 {
             } else if (options.get(j).equalsIgnoreCase("-README")) {
                 readme();
             }else if (options.get(j).equalsIgnoreCase("-textFile")) {
-                textfilereadandwrite(args,args[1],countoptions+1);
+                textfilereadandwrite(args,args[filepathindex],countoptions+1);
             }
             else {
                 System.err.println("Unknown command line option");

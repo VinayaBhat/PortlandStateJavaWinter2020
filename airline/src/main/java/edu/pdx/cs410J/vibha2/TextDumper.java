@@ -46,21 +46,26 @@ public class TextDumper implements AirlineDumper {
      */
     public void writeToText(String filePath,AbstractAirline abstractAirline){
         try{
+
+            TextParser td=new TextParser();
+            td.validateData(filePath);
+            AbstractAirline<Flight> fileairline=td.parse();
+            if(fileairline!=null && !fileairline.getName().equals(abstractAirline.getName())){
+                throw new Exception("Airline name not found in file");
+            }
             File file= new File (filePath);
             if (file.exists())
             {
                 writer= new FileWriter(file,true);//if file exists append to file. Works fine.
+                System.out.println("Writing to an existing file  "+file.getAbsoluteFile());
             }
             else
             {
                 file.createNewFile();
                 writer = new FileWriter(file);
-            }
-            TextParser td=new TextParser();
-            td.validateData(filePath);
-            AbstractAirline<Flight> fileairline=td.parse();
-            if(!fileairline.getName().equals(abstractAirline.getName())){
-                throw new Exception("Airline name not found in file");
+                System.out.println("A new file created  "+file.getAbsoluteFile());
+
+
             }
 
             dump(abstractAirline);
