@@ -1,6 +1,11 @@
 package edu.pdx.cs410J.vibha2;
 
+import edu.pdx.cs410J.AbstractAirline;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * File to test TextParser and TextDumper
@@ -13,7 +18,8 @@ public class TextParserandDumperTest {
     @Test
     public void testingparsefunction(){
         TextParser tp=new TextParser();
-        tp.parse();
+        AbstractAirline<Flight> a1=tp.parse();
+        assertThat(a1, is(nullValue()));
     }
 
     /**
@@ -29,7 +35,7 @@ public class TextParserandDumperTest {
         flight.setArrival_time("1/21/2020", "10:30");
         flight.setDeparture_time("1/20/2020", "15:40");
         a1.addFlight(flight);
-        //td.writeToText("",a1);
+        td.writeToText("file.txt",a1);
 
     }
 
