@@ -5,7 +5,6 @@ import edu.pdx.cs410J.AirlineDumper;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -34,7 +33,7 @@ public class TextDumper<T extends AbstractAirline> implements AirlineDumper<T>{
         }
      writer.close();
         }catch (Exception e){
-            System.err.println(e.getMessage());
+            System.err.println("Error while dumping text "+ e.getMessage());
             System.exit(1);
         }
     }
