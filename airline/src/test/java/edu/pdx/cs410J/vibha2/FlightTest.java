@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.text.ParseException;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class FlightTest {
   /**
    * getDestinationNeedsToBeImplemented is used to test the scenario when Destination is not set.
    */
-  @Test(expected = UnsupportedOperationException.class)
+  @Test(expected = Exception.class)
   public void getDestinationNeedsToBeImplemented() {
     Flight flight = new Flight("3");
     assertThat(flight.getDestination(), is(nullValue()));
@@ -56,17 +57,18 @@ public class FlightTest {
    * settersareworkingproperly is used to test whether the setters are working as expected.
    */
   @Test
-  public void settersareworkingproperly() {
+  public void settersareworkingproperly() throws ParseException {
     Flight flight = new Flight("5");
     flight.setSource("JFK");
     flight.setDestination("PDX");
-    flight.setArrival_time("1/21/2020", "10:30");
-    flight.setDeparture_time("1/20/2020", "15:40");
+    flight.setDeparture_time("1/20/2020", "11:30 am");
+    flight.setArrival_time("1/21/2020", "10:30 am");
+
     assertThat(flight.getNumber(), equalTo(5));
     assertThat(flight.getSource(), equalTo("JFK"));
     assertThat(flight.getDestination(), equalTo("PDX"));
-    assertThat(flight.getArrivalString(), equalTo("1/21/2020 10:30"));
-    assertThat(flight.getDepartureString(), equalTo("1/20/2020 15:40"));
+    assertThat(flight.getArrivalString(), equalTo("01/21/2020 10:30 AM"));
+    assertThat(flight.getDepartureString(), equalTo("01/20/2020 11:30 AM"));
   }
 
   /**
@@ -124,43 +126,5 @@ public class FlightTest {
     Flight flight = new Flight("1");
     flight.setDestination("new jersey");
   }
-
-  /**
-   * arrivaldateoesnotmatchspecification is used to test when arrival date is not given in correct format.
-   */
-  @Test(expected = IllegalArgumentException.class)
-  public void arrivaldateoesnotmatchspecification() {
-    Flight flight = new Flight("1");
-    flight.setArrival_time("21-1-2010", "10:30");
-  }
-
-  /**
-   * arrivaltimeoesnotmatchspecification is used to test when arrival time is not given in correct format.
-   */
-  @Test(expected = Exception.class)
-  public void arrivaltimeoesnotmatchspecification() {
-    Flight flight = new Flight("1");
-    flight.setArrival_time("1/21/2010", "10:30:60");
-  }
-
-  /**
-   * departuredateoesnotmatchspecification is used to test when destination name is not a 3 letter word
-   */
-  @Test(expected = IllegalArgumentException.class)
-  public void departuredateoesnotmatchspecification() {
-    Flight flight = new Flight("1");
-    flight.setDeparture_time("21-1-2010", "10:30");
-  }
-
-  /**
-   * departuretimeoesnotmatchspecification is used to test when arrival time is not given in correct format.
-   */
-  @Test(expected = Exception.class)
-  public void departuretimeoesnotmatchspecification() {
-    Flight flight = new Flight("1");
-    flight.setDeparture_time("1/21/2010", "10:30:60");
-  }
-
-
 
 }

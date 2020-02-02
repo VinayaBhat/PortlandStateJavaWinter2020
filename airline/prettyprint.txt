@@ -1,0 +1,18 @@
+Airline Alaska has Flight 5 which departs from (PDX) Portland, OR airport at 01/22/2020 01:40 PM and arrives at (JFK) New York, NY (Kennedy) airport at 01/23/2020 10:30 AM
+Airline Alaska has Flight 5 which departs from (PDX) Portland, OR airport at 01/22/2020 01:40 PM and arrives at (JFK) New York, NY (Kennedy) airport at 01/23/2020 10:30 AM
+Airline Alaska has Flight 5 which departs from (JFK) New York, NY (Kennedy) airport at 01/20/2020 01:40 PM and arrives at (PDX) Portland, OR airport at 01/21/2020 10:30 AM
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (ABE) Allentown, PA airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 01/21/2020 10:30 AM and arrives at (BUR) Burbank, CA airport at 01/21/2020 10:30 PM
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 01/21/2000 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 01/22/2000 11:30 PM

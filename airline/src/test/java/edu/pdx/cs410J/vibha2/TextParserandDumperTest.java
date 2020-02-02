@@ -3,6 +3,8 @@ package edu.pdx.cs410J.vibha2;
 import edu.pdx.cs410J.AbstractAirline;
 import org.junit.Test;
 
+import java.text.ParseException;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,14 +28,14 @@ public class TextParserandDumperTest {
      * Testing the dump functions which writes to text file
      */
     @Test
-    public void testingtextdump(){
+    public void testingtextdump() throws ParseException {
         TextDumper td=new TextDumper();
         Airline<Flight> a1=new Airline<>("Alaska");
         Flight flight = new Flight("5");
         flight.setSource("JFK");
         flight.setDestination("PDX");
-        flight.setArrival_time("1/21/2020", "10:30");
-        flight.setDeparture_time("1/20/2020", "15:40");
+        flight.setDeparture_time("1/20/2020", "11:40 am");
+        flight.setArrival_time("1/21/2020", "10:30 am");
         a1.addFlight(flight);
         td.writeToText("file.txt",a1);
 

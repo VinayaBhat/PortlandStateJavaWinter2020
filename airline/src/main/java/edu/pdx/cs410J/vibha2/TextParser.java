@@ -30,7 +30,7 @@ public class TextParser implements AirlineParser {
      * validateData validates the flight data is correctly formatted
      * @param filepath is the path to the file
      */
-    public void validateData(String filepath){
+    public  List<Flight> validateData(String filepath){
         List<Flight> flightsinfile=new ArrayList<>();
 
         try{
@@ -52,13 +52,30 @@ public class TextParser implements AirlineParser {
                             throw new Exception("Airline not present in file");
                         }
                     }
-                    Flight flight = new Flight(airlineinfo[1]);
-                    flight.setSource(airlineinfo[2]);
+                    String flightnumber=airlineinfo[1];
+                    String src=airlineinfo[2];
                     String[] datetime = airlineinfo[3].split(" ");
-                    flight.setDeparture_time(datetime[0], datetime[1]);
-                    flight.setDestination(airlineinfo[4]);
+                    String depdate=datetime[0]+" "+datetime[1]+" "+datetime[2];
+                   String dest=airlineinfo[4];
                     String[] datetime2 = airlineinfo[5].split(" ");
-                    flight.setArrival_time(datetime2[0], datetime2[1]);
+                    String arrdate=datetime2[0]+" "+datetime2[1]+" "+datetime2[2];
+                    if(!Flight.flightnumberisvalid(flightnumber)){
+                        throw new Exception("Airline name not proper in file ");
+                    }
+                    if(!Flight.flightsrcdestisvalid(src)){
+                        throw new Exception("Flight source code in file not valid");
+                    }
+                    if(!Flight.flightsrcdestisvalid(dest)){
+                        throw new Exception("Flight destination code in file not valid");
+                    }
+                    if(!Flight.checkarranddepdate(depdate,arrdate)){
+                        throw new Exception("Date not valid in file");
+                    }
+                    Flight flight=new Flight(flightnumber);
+                    flight.setSource(src);
+                    flight.setDestination(dest);
+                    flight.setDeparture_time(datetime[0],datetime[1]+" "+datetime[2]);
+                    flight.setArrival_time(datetime2[0],datetime2[1]+" "+datetime2[2]);
                     flightsinfile.add(flight);
                 }
             }
@@ -67,6 +84,7 @@ public class TextParser implements AirlineParser {
             System.err.println("Could not parse file "+e.getMessage());
             System.exit(1);
         }
+        return flightsinfile;
     }
 
 

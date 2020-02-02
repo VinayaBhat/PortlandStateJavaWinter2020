@@ -1,18 +1,24 @@
 package edu.pdx.cs410J.vibha2;
 
 import edu.pdx.cs410J.AbstractFlight;
+import edu.pdx.cs410J.AirportNames;
 
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import java.util.Comparator;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Flight is a class which extends AbstractFlight.
  */
-public class Flight extends AbstractFlight {
+public class Flight extends AbstractFlight implements Comparable<Flight> {
     //properties
 
     int flight_number;
@@ -20,6 +26,7 @@ public class Flight extends AbstractFlight {
     String destination;
     String arrival_time;
     String departure_time;
+
 
     //constructor
 
@@ -48,7 +55,7 @@ public class Flight extends AbstractFlight {
         if (flightsrcdestisvalid(source)) {
             this.source = source;
         } else {
-            throw new IllegalArgumentException("Flight source is not set properly");
+            throw new IllegalArgumentException("Source airport code is invalid");
 
         }
     }
@@ -62,7 +69,7 @@ public class Flight extends AbstractFlight {
         if (flightsrcdestisvalid(destination)) {
             this.destination = destination;
         } else {
-            throw new IllegalArgumentException("Flight destination is not set properly");
+            throw new IllegalArgumentException("Destination airport code not valid");
 
         }
     }
@@ -74,8 +81,20 @@ public class Flight extends AbstractFlight {
      * @param arrivalTime is a String.
      */
     public void setArrival_time(String arrivalDate, String arrivalTime) {
-        if (checkdateandtime("Arrival", arrivalDate, arrivalTime))
-            this.arrival_time = arrivalDate + " " + arrivalTime;
+        try {
+            if (checkdateandtime("Arrival", arrivalDate, arrivalTime)) {
+                if (checkarranddepdate( this.departure_time,arrivalDate + " " + arrivalTime)) {
+                    DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+                    Date dep = sdf.parse(arrivalDate+" "+arrivalTime);
+                    this.arrival_time = sdf.format(dep);
+                } else {
+                    throw new Exception(" Departure Time is not less than arrival time");
+                }
+            }
+        }catch (Exception e){
+            System.err.println("Error while checking if departure time < arrival time "+e.getMessage());
+            System.exit(1);
+        }
     }
 
     /**
@@ -84,10 +103,18 @@ public class Flight extends AbstractFlight {
      * @param departureDate is a String
      * @param departureTime is a String
      */
-    public void setDeparture_time(String departureDate, String departureTime) {
-        if (checkdateandtime("Departure", departureDate, departureTime)) {
-            this.departure_time = departureDate + " " + departureTime;
+    public void setDeparture_time(String departureDate, String departureTime){
+        try {
+            if (checkdateandtime("Departure", departureDate, departureTime)) {
+                DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+                Date dep = sdf.parse(departureDate + " " + departureTime);
+                this.departure_time = sdf.format(dep);
+            }
+        }catch (Exception e){
+            System.err.println("Departure Date not set properly");
+            System.exit(1);
         }
+
     }
 
     /**
@@ -165,11 +192,12 @@ public class Flight extends AbstractFlight {
      * @param flightinfo is the source or destination string
      * @return boolean
      */
-    private static boolean flightsrcdestisvalid(String flightinfo) {
-        if (flightinfo.matches("^[a-zA-Z]*$") && flightinfo.length() == 3) {
-            return true;
+    public static boolean flightsrcdestisvalid(String flightinfo) {
+        String airportname=AirportNames.getName(flightinfo);
+        if (airportname==null || airportname.length()==0) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     /**
@@ -178,7 +206,7 @@ public class Flight extends AbstractFlight {
      * @param flightnumber is the flight number given during Flight initialization
      * @return boolean
      */
-    private static boolean flightnumberisvalid(String flightnumber) {
+    public static boolean flightnumberisvalid(String flightnumber) {
         String regex = "[0-9]+";
         return flightnumber.matches(regex);
     }
@@ -192,7 +220,7 @@ public class Flight extends AbstractFlight {
      * @return boolean
      * @throws IllegalArgumentException if date and time are not proper
      */
-    private static boolean checkdateandtime(String sd, String date, String time) {
+    public static boolean checkdateandtime(String sd, String date, String time) {
 
         String dateregex = "^(1[0-2]|0[1-9]|[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/[0-9]{4}$";
         Pattern pattern1 = Pattern.compile(dateregex);
@@ -202,12 +230,53 @@ public class Flight extends AbstractFlight {
             throw new IllegalArgumentException(sd + " date not set properly");
         }
         try {
-            LocalTime localTime = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
+            DateFormat sdf = new SimpleDateFormat("hh:mm a");
+            Date timepls = sdf.parse(time);
+
         } catch (Exception e) {
             throw new IllegalArgumentException(sd + " time not set properly");
         }
         return true;
     }
 
+    /**
+     * checkarranddepdate checks if the arrival date > departure date
+     * @param departuredate is a string
+     * @param arrivaldate is a string
+     * @return boolean
+     */
 
+    public static boolean checkarranddepdate(String departuredate,String arrivaldate){
+
+        try {
+            DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+            Date dep = sdf.parse(departuredate);
+            Date arr = sdf.parse(arrivaldate);
+           if (dep.compareTo(arr) < 0) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error while checking if departure time < arrival time "+e.getMessage());
+            System.exit(1);
+        }
+
+    return false;
+    }
+
+
+    /**
+     * compareTo compares flight source and departure time
+     * @param t1 Flight
+     * @return 0,-1,1
+     */
+    @Override
+    public int compareTo(Flight t1) {
+        int value1 = this.getSource().compareTo(t1.getSource());
+        if (value1 == 0) {
+            int value2 = this.getDepartureString().compareTo(t1.getDepartureString());
+            return value2;
+        }
+        return value1;
+    }
 }

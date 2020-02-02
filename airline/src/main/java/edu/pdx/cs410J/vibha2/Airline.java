@@ -1,6 +1,7 @@
 package edu.pdx.cs410J.vibha2;
 import edu.pdx.cs410J.AbstractAirline;
 import edu.pdx.cs410J.AbstractFlight;
+import edu.pdx.cs410J.AirportNames;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,11 +23,18 @@ public class Airline<T extends AbstractFlight> extends AbstractAirline<T>{
      */
     //Airline constructor
     public Airline(String name){
-        if(name.length()!=0){
+        if(airlinenameisvalid(name)){
         this.airline_name=name;}
         else {
             throw new IllegalArgumentException("Airline name is not set");
         }
+    }
+
+    public static boolean airlinenameisvalid(String name){
+        if(name.length()==0){
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -54,6 +62,17 @@ public class Airline<T extends AbstractFlight> extends AbstractAirline<T>{
     @Override
     public Collection getFlights() {
         return flights;
+    }
+
+    /**
+     * AirlinetoString pretty prints airline information
+     * @param flight is of type Flight
+     * @return is String airline information
+     */
+    public String AirlinetoString(Flight flight) {
+        String src=flight.getSource();
+        String dest=flight.getDestination();
+        return "Airline "+airline_name+" has Flight " + flight.getNumber() + " which departs from (" + flight.getSource()+") "+ AirportNames.getName(src) + " airport at " + flight.getDepartureString() + " and arrives at (" + flight.getDestination() + ") "+ AirportNames.getName(dest)+" airport at " + flight.getArrivalString();
     }
 
 }
