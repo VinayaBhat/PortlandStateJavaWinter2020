@@ -1,6 +1,0 @@
-Airline Project3 has Flight 100 which departs from (CVG) Cincinnati, OH airport at 03/02/2017 12:57 PM and arrives at (DBQ) Dubuque, IA airport at 03/02/2017 04:00 PM
-Airline Project3 has Flight 200 which departs from (CWA) Wausau/Stevens Point, WI airport at 01/03/2017 12:14 PM and arrives at (DRO) Durango, CO airport at 01/13/2017 02:45 PM
-Airline Project3 has Flight 300 which departs from (EVV) Evansville, IN airport at 03/04/2017 09:00 AM and arrives at (ORD) Chicago, IL (O'Hare) airport at 03/05/2017 07:00 PM
-Airline Project3 has Flight 400 which departs from (EVV) Evansville, IN airport at 03/04/2017 12:36 PM and arrives at (LFT) Lafayette, LA airport at 03/05/2017 08:19 PM
-Airline Project3 has Flight 1000 which departs from (HRL) Harlingen, TX airport at 01/09/2017 09:00 AM and arrives at (FAT) Fresno, CA airport at 01/09/2017 06:28 PM
-Airline Project3 has Flight 1100 which departs from (LNK) Lincoln, NE airport at 01/10/2017 10:00 AM and arrives at (MFE) Mcallen, TX airport at 01/10/2017 12:16 PM
