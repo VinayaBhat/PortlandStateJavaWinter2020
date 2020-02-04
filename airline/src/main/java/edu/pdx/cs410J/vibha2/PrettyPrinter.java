@@ -5,6 +5,7 @@ import edu.pdx.cs410J.AirlineDumper;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.text.ParseException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -62,7 +63,7 @@ public class PrettyPrinter implements AirlineDumper<AbstractAirline> {
      * @param textfilepath path of textFile
      * @param airline1 input airline
      */
-    public PrettyPrinter(String textfilepath,Airline airline1){
+    public PrettyPrinter(String textfilepath,Airline airline1) throws ParseException {
         TextParser tp=new TextParser();
         List<Flight> flights=tp.validateData(textfilepath);
         String airlinename=airline1.getName();

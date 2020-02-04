@@ -28,6 +28,8 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     String departure_time;
 
 
+
+
     //constructor
 
     /**
@@ -84,15 +86,19 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
         try {
             if (checkdateandtime("Arrival", arrivalDate, arrivalTime)) {
                 if (checkarranddepdate( this.departure_time,arrivalDate + " " + arrivalTime)) {
-                    DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
-                    Date dep = sdf.parse(arrivalDate+" "+arrivalTime);
-                    this.arrival_time = sdf.format(dep);
+                    DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                    Date depdate = sdf.parse(arrivalDate);
+                    String date=DateFormat.getDateInstance(DateFormat.SHORT).format(depdate);
+                    DateFormat sdf1 = new SimpleDateFormat("hh:mm a");
+                    Date deptime = sdf1.parse(arrivalTime);
+                    String time=DateFormat.getTimeInstance(DateFormat.SHORT).format(deptime);
+                    this.arrival_time = date+" "+time;
                 } else {
                     throw new Exception(" Departure Time is not less than arrival time");
                 }
             }
         }catch (Exception e){
-            System.err.println("Error while checking if departure time < arrival time "+e.getMessage());
+            System.err.println("Error while checking setting arrival time "+e.getMessage());
             System.exit(1);
         }
     }
@@ -106,9 +112,13 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     public void setDeparture_time(String departureDate, String departureTime){
         try {
             if (checkdateandtime("Departure", departureDate, departureTime)) {
-                DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
-                Date dep = sdf.parse(departureDate + " " + departureTime);
-                this.departure_time = sdf.format(dep);
+                DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                Date depdate = sdf.parse(departureDate);
+                String date=DateFormat.getDateInstance(DateFormat.SHORT).format(depdate);
+                DateFormat sdf1 = new SimpleDateFormat("hh:mm aa");
+                Date deptime = sdf1.parse(departureTime);
+                String time=DateFormat.getTimeInstance(DateFormat.SHORT).format(deptime);
+                this.departure_time = date+" "+time;
             }
         }catch (Exception e){
             System.err.println("Departure Date not set properly");
@@ -222,7 +232,7 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
      */
     public static boolean checkdateandtime(String sd, String date, String time) {
 
-        String dateregex = "^(1[0-2]|0[1-9]|[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/[0-9]{4}$";
+        String dateregex = "^(1[0-2]|0[1-9]|[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/([0-9]{4}|[0-9]{2})$";
         Pattern pattern1 = Pattern.compile(dateregex);
         Matcher matcher1 = pattern1.matcher(date);
         boolean correctdate = matcher1.matches();
@@ -249,10 +259,10 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     public static boolean checkarranddepdate(String departuredate,String arrivaldate){
 
         try {
-            DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+            DateFormat sdf = new SimpleDateFormat("MM/dd/yy hh:mm a");
             Date dep = sdf.parse(departuredate);
             Date arr = sdf.parse(arrivaldate);
-           if (dep.compareTo(arr) < 0) {
+            if (dep.compareTo(arr) < 0) {
                 return true;
             }
 
@@ -274,9 +284,24 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     public int compareTo(Flight t1) {
         int value1 = this.getSource().compareTo(t1.getSource());
         if (value1 == 0) {
-            int value2 = this.getDepartureString().compareTo(t1.getDepartureString());
+            int value2 = t1.getDepartureString().compareTo(this.getDepartureString());
             return value2;
         }
         return value1;
     }
+
+    /**
+     * Caluclte the duration of flight in minutes
+     * @param dep departure date and time
+     * @param arr arrival date and time
+     * @throws ParseException catch in checkarranddepdate method
+     */
+   public static long findoutminutes(String dep,String arr) throws ParseException {
+       DateFormat sdf = new SimpleDateFormat("MM/dd/yy hh:mm a");
+       Date depdate = sdf.parse(dep);
+       Date arrdate=sdf.parse(arr);
+       long diff=arrdate.getTime()-depdate.getTime();
+       return diff / (60 * 1000);
+   }
+
 }

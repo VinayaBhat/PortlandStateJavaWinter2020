@@ -31,7 +31,7 @@ public class PrettyPrintTest {
      *
      */
     @Test
-    public void testingprettyprint() {
+    public void testingprettyprint() throws ParseException {
         String textpath="prettyprinttestText.txt";
         Airline<Flight> a1=new Airline<>("Alaska");
         Flight flight = new Flight("5");

@@ -57,7 +57,7 @@ public class Project3 {
                 int argindex=countoptions;
                 if(textfile){
                     argindex=argindex+1;
-                    if(prettyfilepresent){
+                    if(prettyfilepresent || dashpresent){
                         argindex=argindex+1;
                     }
                 }
