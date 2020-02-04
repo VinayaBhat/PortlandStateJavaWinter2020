@@ -139,7 +139,7 @@ public class Project3IT extends InvokeMainTestCase {
         String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/XXXX","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
-        assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking if departure time < arrival time Arrival date not set properly"));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking setting arrival time Arrival date not set properly"));
     }
 
     /**
@@ -150,7 +150,7 @@ public class Project3IT extends InvokeMainTestCase {
         String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/2000","11:XX","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
-        assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking if departure time < arrival time Arrival time not set properly"));
+        assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking setting arrival time Arrival time not set properly"));
     }
 
     /**
