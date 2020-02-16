@@ -27,7 +27,6 @@ public class Converter {
                 for(Flight f:flight){
                     String departure=f.getDepartureString();
                     f.setXmldeparture(departure.substring(0,departure.length()-2));
-                    System.out.println(departure.substring(0,departure.length()-2));
                     String arrival=f.getArrivalString();
                     f.setXmlarrival(arrival.substring(0,arrival.length()-2));
                 }
