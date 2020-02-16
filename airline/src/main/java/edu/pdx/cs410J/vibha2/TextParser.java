@@ -77,6 +77,7 @@ public class TextParser implements AirlineParser {
                     flight.setDeparture_time(datetime[0],datetime[1]+" "+datetime[2]);
                     flight.setArrival_time(datetime2[0],datetime2[1]+" "+datetime2[2]);
                     flightsinfile.add(flight);
+                    airline.addFlight(flight);
                 }
             }
 

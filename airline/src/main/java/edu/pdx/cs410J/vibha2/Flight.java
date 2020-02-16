@@ -26,6 +26,25 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     String destination;
     String arrival_time;
     String departure_time;
+    String xmlarrival;
+
+    public String getXmlarrival() {
+        return xmlarrival;
+    }
+
+    public void setXmlarrival(String xmlarrival) {
+        this.xmlarrival = xmlarrival;
+    }
+
+    public String getXmldeparture() {
+        return xmldeparture;
+    }
+
+    public void setXmldeparture(String xmldeparture) {
+        this.xmldeparture = xmldeparture;
+    }
+
+    String xmldeparture;
 
 
 
@@ -112,7 +131,7 @@ public class Flight extends AbstractFlight implements Comparable<Flight> {
     public void setDeparture_time(String departureDate, String departureTime){
         try {
             if (checkdateandtime("Departure", departureDate, departureTime)) {
-                DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                DateFormat sdf = new SimpleDateFormat("MM/dd/yy");
                 Date depdate = sdf.parse(departureDate);
                 String date=DateFormat.getDateInstance(DateFormat.SHORT).format(depdate);
                 DateFormat sdf1 = new SimpleDateFormat("hh:mm aa");

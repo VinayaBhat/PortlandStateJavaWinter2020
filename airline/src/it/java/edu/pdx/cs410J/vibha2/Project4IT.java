@@ -10,12 +10,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * To test Project2
  */
-public class Project3IT extends InvokeMainTestCase {
+public class Project4IT extends InvokeMainTestCase {
     /**
-     * Invokes the main method of {@link Project3} with the given arguments.
+     * Invokes the main method of {@link Project4} with the given arguments.
      */
     private MainMethodResult invokeMain(String... args) {
-        return invokeMain( Project3.class, args );
+        return invokeMain( Project4.class, args );
     }
 
     /**
@@ -63,7 +63,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextfile(){
-        String[] args={"-textFile","ittestfile.txt","Alaska","101","BZE","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","Alaska","101","BZE","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
     }
 
@@ -72,7 +72,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextfileandprintstdout(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","-","Alaska","101","ABE","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","-","Alaska","101","ABE","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
     }
 
@@ -81,7 +81,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextfileandprintstotext(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","ABQ","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","ABQ","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
     }
 
@@ -90,7 +90,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void invalidsourcecode(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","hii","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","hii","1/21/2000","10:30","am","CCS","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Source airport code is invalid"));
@@ -102,7 +102,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void invaliddestcode(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:30","am","hii","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","CCS","1/21/2000","10:30","am","hii","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Destination airport code not valid"));
@@ -113,7 +113,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void invaliddepdate(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/XXXX","10:30","am","AMA","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","CCS","1/21/XXXX","10:30","am","AMA","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Departure Date not set properly"));
@@ -125,7 +125,7 @@ public class Project3IT extends InvokeMainTestCase {
 
     @Test
     public void invaliddeptime(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:XX","am","AMA","1/22/2000","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","CCS","1/21/2000","10:XX","am","AMA","1/22/2000","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Departure Date not set properly"));
@@ -136,7 +136,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void invalidarrdate(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/XXXX","11:30","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/XXXX","11:30","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking setting arrival time Arrival date not set properly"));
@@ -147,7 +147,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void invalidarrtime(){
-        String[] args={"-textFile","ittestfile.txt","-pretty","prettyprint.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/2000","11:XX","pm"};
+        String[] args={"-textFile","textfilevinaya.txt","-pretty","prettyfilevinaya.txt","Alaska","101","CCS","1/21/2000","10:30","am","AMA","1/22/2000","11:XX","pm"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Error while checking setting arrival time Arrival time not set properly"));
@@ -230,7 +230,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextFile() {
-        String[] args = {"-textFile","ittestfile.txt","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020","10:30","pm"};
+        String[] args = {"-textFile","textfilevinaya.txt","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020","10:30","pm"};
         MainMethodResult result = invokeMain(args);
 
     }
@@ -239,7 +239,7 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextFileandlessoptions() {
-        String[] args = {"-textFile","ittestfile.txt","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020"};
+        String[] args = {"-textFile","textfilevinaya.txt","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020"};
         MainMethodResult result = invokeMain(args);
         assertThat(result.getExitCode(), equalTo(1));
         assertThat(result.getTextWrittenToStandardError(), containsString("Number of arguments to populate flight information not correct"));
@@ -251,7 +251,17 @@ public class Project3IT extends InvokeMainTestCase {
      */
     @Test
     public void testwithtextFileandprint() {
-        String[] args = {"-textFile","ittestfile.txt","-print","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020","10:30","pm"};
+        String[] args = {"-textFile","textfilevinaya.txt","-print","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020","10:30","pm"};
+        MainMethodResult result = invokeMain(args);
+
+    }
+
+    /**
+     * Test with only with -textFile and print
+     */
+    @Test
+    public void testwithtextFileandprintandxml() {
+        String[] args = {"-textFile","textfilevinaya.txt","-print","-xmlFile","xmlfilevinaya.xml","Alaska","103","AUS","1/21/2020","10:30","am","BUR","1/21/2020","10:30","pm"};
         MainMethodResult result = invokeMain(args);
 
     }

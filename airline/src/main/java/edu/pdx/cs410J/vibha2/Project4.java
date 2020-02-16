@@ -1,11 +1,14 @@
 package edu.pdx.cs410J.vibha2;
 
+
 import java.util.ArrayList;
 
-public class Project3 {
+public class Project4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         boolean textfile=false;
+        boolean xmlfile=false;
+        int xmlfileindex=0;
         int filepathindex=0;
         if(args.length==0){
             System.err.println("Missing command line arguments");
@@ -21,6 +24,10 @@ public class Project3 {
                 if(args[i].startsWith("-textFile")){
                     textfile=true;
                     filepathindex=i+1;
+                }
+                if(args[i].startsWith("-xmlFile")){
+                    xmlfile=true;
+                    xmlfileindex=i+1;
                 }
                 if(args[i].startsWith("-pretty")) {
                     if (args[i + 1].contains(".")) {
@@ -55,6 +62,9 @@ public class Project3 {
         for(int j=0;j<countoptions;j++) {
             if (options.get(j).equalsIgnoreCase("-print")) {
                 int argindex=countoptions;
+                if(xmlfile){
+                    argindex=argindex+1;
+                }
                 if(textfile){
                     argindex=argindex+1;
                     if(prettyfilepresent || dashpresent){
@@ -68,17 +78,37 @@ public class Project3 {
                 int numberofargs=0;
                 numberofargs = countoptions;
                 if (dashpresent || prettyfilepresent) {
-                     numberofargs = numberofargs + 1;
+                    numberofargs = numberofargs + 1;
                 }
                 if (textfile) {
                     numberofargs = numberofargs+1;
                 }
+                if(xmlfile){
+                    numberofargs=numberofargs+1;
+                }
                 textfilereadandwrite(args, args[filepathindex], numberofargs);
-            }else if(options.get(j).equalsIgnoreCase("-pretty")){
+            }else if (options.get(j).equalsIgnoreCase("-xmlFile")) {
+                int numberofargs=0;
+                numberofargs = countoptions;
+                if (dashpresent || prettyfilepresent) {
+                    numberofargs = numberofargs + 1;
+                }
+                if (textfile) {
+                    numberofargs = numberofargs+1;
+                }
+                if(xmlfile){
+                    numberofargs=numberofargs+1;
+                }
+                dumpinxmlfile(args, args[xmlfileindex], numberofargs);
+            }
+            else if(options.get(j).equalsIgnoreCase("-pretty")){
                 if(dashpresent) {
                     int numberofargs = countoptions + 1;
                     if (textfile) {
                         numberofargs = numberofargs+1;
+                    }
+                    if(xmlfile){
+                        numberofargs=numberofargs+1;
                     }
                     prettyprint(args,prettypath,args[filepathindex],numberofargs);
                 }
@@ -89,6 +119,9 @@ public class Project3 {
                     if(textfile){
                         numberofargs=numberofargs+1;
                     }
+                    if(xmlfile){
+                        numberofargs=numberofargs+1;
+                    }
                     prettyprint(args,prettypath,args[filepathindex],numberofargs);
                 }
             }
@@ -97,6 +130,36 @@ public class Project3 {
                 System.exit(1);
             }
         }
+    }
+
+    private static void dumpinxmlfile(String[] args, String xmlfile, int i) {
+        try {
+            if(args.length-i!=10){
+                System.err.println("Number of arguments to populate flight information not correct");
+                System.exit(1);
+            }
+            String airlinename = args[i];
+            String flightnumber = args[i + 1];
+            String flightsrc = args[i + 2];
+            String depardate = args[i + 3];
+            String departime = args[i + 4];
+            String flightdest = args[i + 6];
+            String arrivaldate = args[i + 7];
+            String arrrivaltime = args[i + 8];
+            Airline<Flight> a1 = new Airline<>(airlinename);
+            Flight flight = new Flight(flightnumber);
+            flight.setSource(flightsrc);
+            flight.setXmldeparture(depardate+" "+departime);
+            flight.setDestination(flightdest);
+            flight.setXmlarrival(arrivaldate+" "+arrrivaltime);
+            a1.addFlight(flight);
+            XmlDumper<Airline> xmldumper=new XmlDumper<>(xmlfile);
+            xmldumper.dump(a1);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+
     }
 
     /**
@@ -222,7 +285,7 @@ public class Project3 {
     public static void readme(){
         System.out.println("Author: Vinaya D Bhat");
         System.out.println("Project 3: Designing an Airline Application");
-        System.out.println("This project contains Five classes: Airline,Flight,TextDumper,TextParser and PrettyPrint");
+        System.out.println("This project contains Five classes: Airline,Flight,TextDumper,TextParser,XMLDumper,XMLParser,Converter and PrettyPrint");
         System.out.println("We are populating the airline and flight information such that one " +
                 "airline contains multiple flights. We are writing the flight information to a " +
                 "textfile if the -textFile option is given. We are sorting the flight information based on the " +
@@ -232,6 +295,8 @@ public class Project3 {
         System.out.println("Text Parser validates flight information in the file and parses incoming flight information");
         System.out.println("Text Dumper class allowd to write the flight information to the text file");
         System.out.println("Pretty Printer class either writes to stdout or to a pretty print file");
+        System.out.println("XML Parser validates flight information in the file and parses incoming flight information");
+        System.out.println("XML Dumper class allowd to write the flight information to the xml file");
     }
 
 }
