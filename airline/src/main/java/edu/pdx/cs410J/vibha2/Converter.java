@@ -2,6 +2,7 @@ package edu.pdx.cs410J.vibha2;
 
 import edu.pdx.cs410J.AbstractAirline;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +21,10 @@ public class Converter {
             try {
                 String textfile = args[0];
                 String xmlfile = args[1];
+                File file=new File(textfile);
+                if(!file.exists()){
+                    throw new Exception("TextFile not found");
+                }
                 TextParser tp = new TextParser();
                 tp.validateData(textfile);
                 AbstractAirline<Flight> airline = tp.parse();
