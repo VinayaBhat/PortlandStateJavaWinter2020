@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<!DOCTYPE airline SYSTEM "http://www.cs.pdx.edu/~whitlock/dtds/airline.dtd">
+<airline>
+    <name>Alaska</name>
+    <flight>
+        <number>103</number>
+        <src>AUS</src>
+        <depart>
+            <date day="21" month="1" year="2020"/>
+            <time hour="10" minute="30"/>
+        </depart>
+        <dest>BUR</dest>
+        <arrive>
+            <date day="21" month="1" year="2020"/>
+            <time hour="10" minute="30"/>
+        </arrive>
+    </flight>
+</airline>

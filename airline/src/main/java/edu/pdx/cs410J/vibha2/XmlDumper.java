@@ -151,7 +151,8 @@ public class XmlDumper<Airline extends AbstractAirline> implements AirlineDumper
             StreamResult streamResult = new StreamResult(new File(xmlPath));
             transformer.transform(domSource, streamResult);
         }catch (Exception e){
-            e.printStackTrace();
+           System.err.println(e.getMessage());
+           System.exit(1);
         }
     }
 
