@@ -43,6 +43,10 @@ public class Project4 {
 
             }
         }
+        if(textfile && xmlfile){
+            System.err.println("Both textFile and xmlFile present");
+            System.exit(1);
+        }
         if(dashpresent) {
             countoptions = countoptions - 1;
             options.remove("-");
