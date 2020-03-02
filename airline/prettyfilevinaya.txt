@@ -2,3 +2,28 @@ Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport a
 Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
 Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
 Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABE) Allentown, PA airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABE) Allentown, PA airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABE) Allentown, PA airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (ABQ) Albuquerque, NM airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 103 which departs from (AUS) Austin, TX airport at 1/21/20 10:30 AM and arrives at (BUR) Burbank, CA airport at 1/21/20 10:30 PM. It is a 720 minute flight.
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
+Airline Alaska has Flight 101 which departs from (BZE) Belize city, Belize airport at 1/21/00 10:30 AM and arrives at (CCS) Caracas, Venezuela airport at 1/22/01 11:30 PM. It is a 529260 minute flight.
